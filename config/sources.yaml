@@ -1,0 +1,91 @@
+sources:
+  # ── United States ──────────────────────────────────────────────────────────
+  - id: federal_register
+    name: "US Federal Register"
+    jurisdiction: "US"
+    type: api
+    url: "https://www.federalregister.gov/api/v1/documents.json"
+
+  - id: ftc_news
+    name: "US FTC News & Events"
+    jurisdiction: "US"
+    type: rss
+    url: "https://www.ftc.gov/news-events/rss.xml"
+
+  - id: sec_rules
+    name: "US SEC Proposed Rules"
+    jurisdiction: "US"
+    type: rss
+    url: "https://www.sec.gov/cgi-bin/browse-edgar?action=getcompany&type=proposed+rule&dateb=&owner=include&count=20&search_text=&output=atom"
+
+  # ── European Union ─────────────────────────────────────────────────────────
+  - id: edpb
+    name: "EU EDPB (European Data Protection Board)"
+    jurisdiction: "EU"
+    type: rss
+    url: "https://edpb.europa.eu/edpb_en.rss"
+
+  - id: ec_digital
+    name: "EU European Commission Digital Policy"
+    jurisdiction: "EU"
+    type: rss
+    url: "https://ec.europa.eu/newsroom/dae/rss.cfm?item_type=1604&dom=1"
+
+  # ── United Kingdom ─────────────────────────────────────────────────────────
+  - id: ico
+    name: "UK ICO (Information Commissioner's Office)"
+    jurisdiction: "UK"
+    type: rss
+    url: "https://ico.org.uk/about-the-ico/media-centre/news-and-blogs/feed/"
+
+  - id: fca
+    name: "UK FCA Press Releases"
+    jurisdiction: "UK"
+    type: rss
+    url: "https://www.fca.org.uk/news/rss.xml"
+
+  # ── Singapore ──────────────────────────────────────────────────────────────
+  - id: pdpc_sg
+    name: "Singapore PDPC"
+    jurisdiction: "SG"
+    type: rss
+    url: "https://www.pdpc.gov.sg/feeds/all-news-and-announcements"
+
+  # ── Australia ──────────────────────────────────────────────────────────────
+  - id: oaic_au
+    name: "Australia OAIC"
+    jurisdiction: "AU"
+    type: rss
+    url: "https://www.oaic.gov.au/news-and-information/rss"
+
+# Keywords used to pre-filter obvious non-tech items from RSS feeds
+# (Claude Haiku does deeper classification; these are quick exclusion hints)
+tech_keywords:
+  - artificial intelligence
+  - AI
+  - machine learning
+  - data protection
+  - privacy
+  - cybersecurity
+  - cyber security
+  - fintech
+  - digital platform
+  - algorithm
+  - automated decision
+  - data governance
+  - technology
+  - digital services
+  - online platform
+  - cloud
+  - software
+  - data broker
+  - surveillance
+  - biometric
+  - facial recognition
+  - generative AI
+  - large language model
+  - open source
+  - semiconductor
+  - crypto
+  - blockchain
+  - digital assets

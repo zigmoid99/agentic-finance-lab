@@ -1,0 +1,71 @@
+# ── Model configuration ────────────────────────────────────────────────────────
+models:
+  filter: "claude-haiku-4-5-20251001"      # Fast + cheap; bulk classification
+  research: "claude-opus-4-6"               # Best reasoning; deep reg analysis
+  scriptwriter: "claude-opus-4-6"           # Best writing; podcast script
+  show_notes: "claude-haiku-4-5-20251001"   # Show notes + episode description
+
+# ── Episode production settings ────────────────────────────────────────────────
+episode:
+  max_regulations: 4          # Maximum regulations to deep-research per episode
+  target_words: 2000          # Target word count for script (~13 min at 150 WPM)
+  min_relevance_score: 6      # Minimum score (0–10) to include a regulation
+  lookback_days: 7            # How many days back to scan for new items
+  show_name: "RegWatch: Tech Regulation Decoded"
+  show_description: >
+    Weekly deep-dives into global technology regulation — AI governance,
+    data privacy, fintech, cybersecurity, and platform law. Expert analysis
+    and practical strategy for technology companies navigating the regulatory landscape.
+
+# ── Podcast personas ───────────────────────────────────────────────────────────
+personas:
+  - id: alex
+    name: "Alex"
+    role: "Host"
+    voice: "alloy"                    # OpenAI TTS voice (prototype)
+    elevenlabs_voice_id: ""           # Fill in when upgrading to ElevenLabs
+    description: >
+      Professional podcast host with a background in technology journalism.
+      Guides the conversation with clarity, asks sharp clarifying questions,
+      connects regulatory themes to real-world tech company impact, and
+      summarizes key takeaways for the audience. Warm but authoritative tone.
+
+  - id: jordan
+    name: "Jordan"
+    role: "Regulatory Expert"
+    voice: "echo"                     # OpenAI TTS voice (prototype)
+    elevenlabs_voice_id: ""
+    description: >
+      Regulatory attorney and former government advisor with 15+ years of
+      experience in technology law. Explains regulatory background, legislative
+      history, and legal implications with precision. Makes complex legal
+      concepts accessible without oversimplifying. Measured, authoritative tone.
+
+  - id: sam
+    name: "Sam"
+    role: "Industry Strategist"
+    voice: "nova"                     # OpenAI TTS voice (prototype)
+    elevenlabs_voice_id: ""
+    description: >
+      Technology industry strategist and former CTO at a major platform company.
+      Focuses on business impact, competitive dynamics, and practical compliance
+      strategy. Candid about trade-offs, occasionally pushes back on over-regulation,
+      always ends with concrete action items for tech leaders. Pragmatic, direct tone.
+
+# ── RSS feed / publishing settings ─────────────────────────────────────────────
+# Used by the publisher agent (Phase 3)
+rss:
+  title: "RegWatch: Tech Regulation Decoded"
+  description: >
+    Weekly analysis of global technology regulation — what it means,
+    what to do about it. Hosted by Alex with regulatory expert Jordan
+    and industry strategist Sam.
+  language: "en"
+  author: "RegWatch"
+  # Update these with your GitHub Pages URL once configured:
+  link: "https://your-username.github.io/podcast-builder"
+  feed_url: "https://your-username.github.io/podcast-builder/feed.xml"
+  image_url: "https://your-username.github.io/podcast-builder/artwork.jpg"
+
+# ── Output ─────────────────────────────────────────────────────────────────────
+output_dir: "data/episodes"

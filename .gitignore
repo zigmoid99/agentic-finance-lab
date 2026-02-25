@@ -1,0 +1,41 @@
+# ── Secrets ───────────────────────────────────────────────────────────────────
+.env
+*.env
+
+# ── Episode audio (large binary files — host externally, not in git) ──────────
+data/episodes/*/audio_segments/
+data/episodes/**/*.mp3
+data/episodes/**/*.wav
+
+# ── Python ────────────────────────────────────────────────────────────────────
+__pycache__/
+*.py[cod]
+*$py.class
+*.egg-info/
+dist/
+build/
+.eggs/
+*.egg
+.pytest_cache/
+.mypy_cache/
+.ruff_cache/
+
+# ── Virtual environments ───────────────────────────────────────────────────────
+venv/
+.venv/
+env/
+.env/
+
+# ── IDE ───────────────────────────────────────────────────────────────────────
+.vscode/
+.idea/
+*.sublime-project
+*.sublime-workspace
+
+# ── OS ────────────────────────────────────────────────────────────────────────
+.DS_Store
+Thumbs.db
+
+# ── Misc ──────────────────────────────────────────────────────────────────────
+*.log
+*.tmp

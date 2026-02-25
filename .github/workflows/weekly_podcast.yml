@@ -1,0 +1,74 @@
+name: Weekly Podcast Generation
+
+on:
+  schedule:
+    - cron: '0 9 * * 1'   # Every Monday at 09:00 UTC
+  workflow_dispatch:        # Allow manual trigger from GitHub Actions UI
+    inputs:
+      skip_audio:
+        description: 'Skip TTS audio generation (script only)'
+        required: false
+        type: boolean
+        default: false
+
+permissions:
+  contents: write           # Needed to commit episode artifacts back to repo
+
+jobs:
+  generate-podcast:
+    runs-on: ubuntu-latest
+    timeout-minutes: 90     # Pipeline takes ~20–40 min; 90 min is a safe ceiling
+
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+
+      - name: Set up Python 3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+          cache: pip
+
+      - name: Install system dependency (ffmpeg)
+        run: sudo apt-get install -y ffmpeg
+
+      - name: Install Python dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run podcast pipeline
+        run: |
+          if [ "${{ github.event.inputs.skip_audio }}" = "true" ]; then
+            python pipeline.py --skip-audio
+          else
+            python pipeline.py
+          fi
+        env:
+          ANTHROPIC_API_KEY: ${{ secrets.ANTHROPIC_API_KEY }}
+          OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+          ELEVENLABS_API_KEY: ${{ secrets.ELEVENLABS_API_KEY }}
+          B2_KEY_ID: ${{ secrets.B2_KEY_ID }}
+          B2_APPLICATION_KEY: ${{ secrets.B2_APPLICATION_KEY }}
+          B2_BUCKET_NAME: ${{ secrets.B2_BUCKET_NAME }}
+
+      - name: Commit episode artifacts (JSON only — no large audio files)
+        run: |
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+          # Stage JSON artifacts; audio is excluded via .gitignore
+          git add data/episodes/ || true
+          if git diff --staged --quiet; then
+            echo "No new artifacts to commit."
+          else
+            EPISODE_DATE=$(date -u +%Y-%m-%d)
+            git commit -m "chore: episode ${EPISODE_DATE} artifacts [skip ci]"
+            git push
+          fi
+
+      - name: Upload episode audio as workflow artifact
+        uses: actions/upload-artifact@v4
+        if: always()
+        with:
+          name: episode-audio-${{ github.run_id }}
+          path: data/episodes/**/*.mp3
+          retention-days: 30   # Keep for 30 days before auto-deletion
+          if-no-files-found: ignore
