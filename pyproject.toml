@@ -1,0 +1,13 @@
+[project]
+name = "agentic-finance-lab"
+version = "0.1.0"
+description = "Working prototypes of multi-agent systems for risk, compliance and finance."
+readme = "README.md"
+requires-python = ">=3.10"
+dependencies = []
+
+[project.optional-dependencies]
+claude = ["anthropic"]
+
+[tool.setuptools]
+packages = ["core", "prototypes", "prototypes.reg_change_triage"]
