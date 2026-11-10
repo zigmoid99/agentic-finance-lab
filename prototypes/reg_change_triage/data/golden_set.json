@@ -1,0 +1,21 @@
+{
+  "_about": "Hand-labeled answers for sample_rule.md against controls.json. gap: none = an existing control covers it, partial = a control exists but falls short, full = nothing covers it. Sections 1 and 16 hold no obligation.",
+  "no_obligation_sections": ["1", "16"],
+  "obligations": [
+    {"section": "2", "controls": ["C-MRM-01"], "gap": "partial", "why": "Inventory is reconciled quarterly; the rule wants updates within 30 days."},
+    {"section": "3", "controls": ["C-MRM-02"], "gap": "none"},
+    {"section": "4", "controls": ["C-TPR-01", "C-TPR-02"], "gap": "partial", "why": "Due diligence does not cover training practices."},
+    {"section": "5", "controls": ["C-MRM-03"], "gap": "none"},
+    {"section": "6", "controls": ["C-MRM-04"], "gap": "none"},
+    {"section": "7", "controls": ["C-FL-01"], "gap": "none"},
+    {"section": "8", "controls": ["C-FL-02"], "gap": "none"},
+    {"section": "9", "controls": [], "gap": "full", "why": "No control defines human review thresholds or override."},
+    {"section": "10", "controls": ["C-PRV-01", "C-TPR-03"], "gap": "none"},
+    {"section": "11", "controls": ["C-INC-01"], "gap": "partial", "why": "Escalation is within five business days; the rule wants 72 hours."},
+    {"section": "12", "controls": [], "gap": "full", "why": "Marketing and UDAAP reviews do not check generated content before delivery."},
+    {"section": "13", "controls": ["C-REC-01"], "gap": "none"},
+    {"section": "14", "controls": ["C-GOV-01"], "gap": "partial", "why": "The risk appetite statement does not cover AI."},
+    {"section": "15", "controls": ["C-TPR-04"], "gap": "none"},
+    {"section": "17", "controls": ["C-TRN-01"], "gap": "partial", "why": "Annual training does not cover AI tool limitations."}
+  ]
+}
