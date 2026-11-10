@@ -59,6 +59,9 @@ appetite statement that never mentions AI does not cover AI. It also flags
 seven-year retention as failing a five-year rule. Those are the judgment
 calls the agents have to get right.
 
+A research paper on this prototype, in ACM conference format, is in
+[`paper/`](paper/). It reports only the baseline above.
+
 The Claude run has not been scored yet. Run it with `--backend claude` and
 the scorecard lands next to the memo.
 
