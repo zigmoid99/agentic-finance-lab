@@ -1,2 +1,2 @@
-# dev-sandbox
+# agentic-finance-labs
 Dev Sandbox
