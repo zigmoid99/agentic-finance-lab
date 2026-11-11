@@ -14,6 +14,12 @@ other ACM venues by changing the document class options. Check the current
 call for papers for page limits, anonymity rules and deadlines before you
 submit. They change from year to year, so they are not hard-coded here.
 
+As checked on November 11, 2026, ICAIF 2026 (Milan, November 14 to 17) closed
+for papers on August 9, 2026. Its limit was eight two-column pages including
+references, with no appendices, under double-blind review. This draft is
+likely longer than that, so plan for a later cycle or another venue, and cut
+to the limit that venue sets.
+
 ## Build the PDF
 
 You need a TeX distribution with the `acmart` class (TeX Live and MiKTeX both

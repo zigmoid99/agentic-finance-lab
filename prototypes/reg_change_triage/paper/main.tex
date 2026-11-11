@@ -146,9 +146,13 @@ across finance~\cite{li2023llmfinance,wu2023bloomberggpt}. A single prompt
 that takes a rule and a control library and returns a gap assessment is easy
 to build. It is also hard to trust. It offers no checkpoint between
 extraction, mapping and judgment, no independent review, and no record that
-a validator could reproduce. Supervisory expectations for models used in
-decisions, including validation, effective challenge and documentation, apply
-to such a tool as much as to any other model~\cite{sr117,nistairmf}.
+a validator could reproduce. For fifteen years, supervisory guidance expected
+validation, effective challenge and documentation for models used in
+decisions~\cite{sr117}. The revised interagency guidance of April 2026 replaces
+that guidance and places generative and agentic AI models outside its scope
+for now~\cite{mrm2026}. A tool like this one therefore sits in a gap: risk
+frameworks still expect it to be governed~\cite{nistairmf}, but model risk
+guidance no longer says how.
 
 This paper takes the position that in regulated workflows LLM agents should
 \emph{draft}, and code should \emph{decide}. We make five contributions.
@@ -193,9 +197,10 @@ compliance (GRC). It sits within the broader movement to apply technology to
 regulatory obligations, often called RegTech~\cite{arner2017fintech}. In the
 three lines model, the first line owns controls, the second line provides
 independent oversight and challenge, and internal audit provides
-assurance~\cite{iia3lines}. Guidance on model risk management expects
-``effective challenge'' of models by informed, independent
-parties~\cite{sr117}. Supervisory documents such as the 2023 interagency
+assurance~\cite{iia3lines}. The 2011 interagency guidance on model risk
+management made ``effective challenge'' of models by informed, independent
+parties a central expectation~\cite{sr117}; the agencies replaced that
+guidance in April 2026~\cite{mrm2026}. Supervisory documents such as the 2023 interagency
 guidance on third-party risk management~\cite{tprm2023} illustrate the kind of
 principle-based text that must be decomposed into obligations and mapped to
 controls. Frameworks for AI governance, including the NIST AI Risk Management
@@ -612,7 +617,7 @@ no binding requirement, leaving 15 obligations. Its topics, including
 inventory, risk tiering, vendor due diligence, validation, fair lending,
 human oversight, incident reporting, records and board oversight, were chosen
 to resemble the concerns of recent supervisory guidance on models and third
-parties~\cite{sr117,tprm2023} without reproducing any text. The control
+parties~\cite{sr117,mrm2026,tprm2023} without reproducing any text. The control
 library has 30 synthetic controls across model risk, third-party risk, fair
 lending, privacy, incidents, records, governance, training and several
 unrelated areas that serve as realistic distractors. We used synthetic data
@@ -772,7 +777,7 @@ set of requirements with a set of controls and defend the result.
   third-party risk requirements~\cite{tprm2023}.
   \item \textbf{Second-line model review.} Drafting the effective-challenge
   review of model documentation against model risk
-  expectations~\cite{sr117}, with the challenger role as a first pass for
+  expectations~\cite{mrm2026}, with the challenger role as a first pass for
   validators.
   \item \textbf{Internal audit planning.} Proposing which controls to test
   for a new requirement and which gaps carry the most risk.
@@ -828,8 +833,12 @@ will look for them first.
   deterministic routing policy limits what such an attack can achieve, but
   we have not tested it.
   \item \textbf{Output status.} The memo is a draft for human approval and
-  not a compliance determination. The triage system is itself a model in the
-  supervisory sense and would need validation before use~\cite{sr117}.
+  not a compliance determination. The triage system would need validation
+  before use. The revised model risk guidance excludes both deterministic
+  rule-based processes and generative or agentic AI models from its
+  scope~\cite{mrm2026}, so neither backend falls under it as written. An
+  institution would have to choose and justify the standard it validates
+  against, for example the NIST AI RMF~\cite{nistairmf}.
 \end{itemize}
 
 %% =====================================================================
